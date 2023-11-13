@@ -1,0 +1,791 @@
+JavaScript is a widely-used, high-level programming language primarily employed in web development. It is a core technology for building interactive and dynamic web applications. JavaScript runs in web browsers, allowing developers to enhance the user experience by creating responsive, feature-rich websites. It is versatile and supports both object-oriented and functional programming paradigms. JavaScript is known for its asynchronous capabilities, which enable handling tasks such as data fetching without blocking the user interface. With the introduction of Node.js, JavaScript can also be used for server-side development, making it a full-stack language. JavaScript has a vast ecosystem of libraries and frameworks, such as React, Angular, and Vue.js, which streamline and expedite web development. Its ability to manipulate the Document Object Model (DOM) allows for real-time updates and interactions on web pages. Overall, JavaScript is a fundamental language for modern web development, enabling the creation of dynamic, responsive, and interactive web applications.
+
+
+=================================================================================
+
+JSON - JavaScript Standard Object Notation 
+
+It is a standard for data interchange format.
+It is language independent. 
+
+JSON.parse(json_data) => converts the json data to javascript objects.
+JSON.stringify(json_data) => converts the javascript object to json data. 
+
+
+in a function - "this" refers to the global object 
+in a event - "this" refers to the object that triggered the event
+in a object - "this" refers to that object itself
+
+6n + 1 
+
+
+===================================================================
+
+- When a browser loads a webpage, it creates a model that holds references to the contents of the web page,
+This references will be in the form of objects called nodes. This is called as a Document Object Model (DOM).
+
+- document (This is the entry point of the web page, it holds the entire web document info) 
+
+
+
+===========================================================================
+
+document.getElementById()
+document.getElementByClassName()
+document.getElementByTagName()
+document.querySelector()
+document.querySelectorAll()
+element.innerHTML
+element.textContent
+element.setAttribute()
+element.getAttribute()
+element.classList.add()
+element.classList.remove()
+element.appendChild()
+element.removeChild() 
+
+
+========================================
+Inserting elements 
+
+currentElement.prepend(newElement)
+currentElement.append(newElement)
+currentElement.before(newElement)
+currentElement.after(newElement)
+currentElement.insertAdjacentHTML("beforeend", "<p>test here</p>")
+currentElement.after(newElement)
+currentElement.before(newElement)
+currentElement.insertBefore(newElement, currentElement.children[0]) 
+
+
+==================================================================================================================================================================================
+JavaScript 
+Javascript -> Javascript engine detects  html 
+
+Execution context
+- Global Execution Context (GEC)
+- Function Execution Context (FEC)
+
+Two Phases 
+1. Creation phase
+	- GEC - Variable Object - VO, (Global variables, Function declarations), stores in Memory. 
+		  "This" refers to the "document" object itself. All the variables and functions defined in the execution context will be the document object's properties      
+		   and methods. 
+	  FEC - Also created its own localized VO.
+		  Also creates a array-like object that stores the arguments passed to the function, it also holds the reference object of the respective function itself.
+		  In this case the "This" variable refers to the object calling the function itself. If no object then it obviously refers to the document object. 
+	  Lexical Scoping (Inner function accessing outer function code and variables). 
+	  Scope chaining (javascript engine traversing through the corresponding execution context from the inner function to the outer function to resolve variables).  
+ 
+	
+2. Execution phase 
+	- After the creation of  the respective execution contexts, parser will parse the code and the execution will start. 
+      - Each execution will be moved to the stack (stack memory) as per its appearance in the code. 
+	- Once the execution context completes execution, it will be popped off the stack and the execution context below it will start executing, and so on. 
+
+
+
+===================================================================================================================================================================================
+
+REGULAR EXPRESSION:
+
+A Regular Expression (Regex or RegExp) is a pattern that defines a set of strings. It provides a concise and flexible means for matching strings of text, such as characters, words, or patterns of characters.
+
+
+## Regular Expressions (Regex) in JavaScript
+
+### 1. Introduction to Regular Expressions
+
+Regular expressions, often referred to as regex or regexp, are powerful tools for pattern matching and text manipulation. They provide a concise and flexible means for searching, extracting, and manipulating strings based on patterns.
+
+### 2. Creating Regular Expressions
+
+You can create regular expressions in JavaScript using two methods:
+
+- **Literal Syntax**: Enclose the pattern in forward slashes `/.../` and add optional flags.
+
+  ```javascript
+  const regex = /pattern/; // Example
+  ```
+
+- **Constructor Syntax**: Use the `RegExp` constructor with a pattern string and optional flags.
+
+  ```javascript
+  const regex = new RegExp("pattern"); // Example
+  ```
+
+### 3. Basic Pattern Matching
+
+#### 3.1. Literal Characters
+
+- **`.` (Dot)**: Matches any single character except a newline.
+  - Example: `/c.t/` matches "cat," "cut," and "cot" but not "c\nnt."
+
+#### 3.2. Character Classes
+
+- **`[...]`**: Matches any character within the square brackets.
+  - Example: `/gr[ae]y/` matches "gray" or "grey."
+
+- **`[a-z]`**: Matches any lowercase letter.
+  - Example: `/[a-z]at/` matches "cat" but not "Bat."
+
+- **`[A-Z]`**: Matches any uppercase letter.
+
+- **`[0-9]`**: Matches any digit.
+
+#### 3.3. Quantifiers
+
+- **`*` (Asterisk)**: Matches the preceding character or group zero or more times.
+  - Example: `/go*d/` matches "gd," "god," and "good."
+
+- **`+` (Plus)**: Matches the preceding character or group one or more times.
+  - Example: `/go+d/` matches "god" and "good" but not "gd."
+
+- **`?` (Question Mark)**: Makes the preceding character or group optional (matches zero or one time).
+  - Example: `/colou?r/` matches "color" and "colour."
+
+- **`{n}`**: Matches the preceding character or group exactly n times.
+  - Example: `/a{3}/` matches "aaa."
+
+- **`{n,}`**: Matches the preceding character or group at least n times.
+
+- **`{n,m}`**: Matches the preceding character or group between n and m times.
+
+### 4. Special Characters and Metacharacters
+
+- **`^` (Caret)**: Matches the start of a string.
+  - Example: `/^apple/` matches "apple" but not "pineapple."
+
+- **`$` (Dollar Sign)**: Matches the end of a string.
+  - Example: `/apple$/` matches "apple" but not "apple pie."
+
+- **`|` (Pipe)**: Acts as an OR operator, allowing you to match multiple patterns.
+  - Example: `/apple|banana/` matches "apple" or "banana."
+
+- **`()` (Parentheses)**: Creates a capturing group for complex patterns.
+  - Example: `/(apple|banana) pie/` captures "apple" or "banana."
+
+### 5. Character Classes
+
+#### 5.1. `\w` and `\W`
+
+- **`\w` (Lowercase W)**: Matches any word character (letters, digits, underscores).
+  - Example: `/[\w]+/` matches "word123" and "user_name."
+
+- **`\W` (Uppercase W)**: Matches any non-word character (not letters, digits, or underscores).
+  - Example: `/[\W]+/` matches "!!!" and " - " but not "word123."
+
+#### 5.2. `\d` and `\D`
+
+- **`\d` (Lowercase D)**: Matches any digit character (0-9).
+  - Example: `/[\d]+/` matches "12345" but not "abc."
+
+- **`\D` (Uppercase D)**: Matches any non-digit character (not 0-9).
+  - Example: `/[\D]+/` matches "abc" but not "12345."
+
+### 6. Flags
+
+Flags are optional modifiers that affect how regular expressions behave. Common flags include:
+
+- **`g` (Global)**: Matches all occurrences in the input string.
+- **`i` (Case-insensitive)**: Ignores case when matching.
+- **`m` (Multi-line)**: Matches the start and end of each line.
+
+Example: `/pattern/gi` matches all occurrences of "pattern" in a case-insensitive manner.
+
+### 7. Methods for Using Regex in JavaScript
+
+JavaScript provides several methods for working with regular expressions:
+
+- `test()`: Tests if a string matches the pattern and returns `true` or `false`.
+- `exec()`: Searches for a match in a string and returns the first match.
+- `match()`: Retrieves the result of matching a string against a regex.
+- `search()`: Searches for a match in a string and returns the index of the first match.
+- `replace()`: Replaces matched substrings with specified values.
+- `split()`: Splits a string into an array of substrings based on matches.
+
+### 8. Common Use Cases
+
+Regular expressions are used in various scenarios, including:
+
+- **Data Validation**: Validating email addresses, phone numbers, passwords, etc.
+- **Text Parsing**: Extracting data from text, such as dates, URLs, and numbers.
+- **String Manipulation**: Replacing, splitting, or formatting text.
+- **Pattern Matching**: Searching for specific patterns in a text document.
+
+### 9. Resources
+
+- [MDN Web Docs - Regular Expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions): Comprehensive documentation on regular expressions in JavaScript.
+- [RegExr](https://regexr.com/): An online tool for testing and building regular expressions with explanations.
+- [Regex101](https://regex101.com/): Another online regex testing tool with explanations.
+
+### 10. Practice
+
+Practice writing and testing regular expressions using online tools and by solving coding challenges involving regex patterns.
+
+Understanding and mastering regular expressions is valuable for both front-end and back-end development, as they are widely used in many programming tasks. Good luck with your interview preparation!
+
+
+///////////
+
+Certainly, here are some common examples of pattern matching using regular expressions for various tasks:
+
+### 1. Matching Email Addresses
+
+Regex for matching a basic email address (assuming common characters):
+
+```javascript
+const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+```
+
+- This pattern checks for the basic structure of an email address, but it doesn't validate the email with 100% accuracy. Valid email addresses can be quite complex.
+
+### 2. Matching Names
+
+Regex for matching names with alphabetical characters (assuming common characters in names):
+
+```javascript
+const nameRegex = /^[A-Za-z\s-]+$/
+```
+
+- This pattern matches names with alphabetic characters, spaces, and hyphens. Names can vary widely, so this is a basic pattern.
+
+### 3. Extracting URLs from Text
+
+Regex for extracting URLs from text (matches common URL formats):
+
+```javascript
+const urlRegex = /https?:\/\/[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/
+```
+
+- This pattern extracts URLs that start with "http://" or "https://". URL patterns can be more complex depending on your requirements.
+
+### 4. Matching Dates (MM/DD/YYYY Format)
+
+Regex for matching dates in MM/DD/YYYY format:
+
+```javascript
+const dateRegex = /^(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])\/\d{4}$/
+```
+
+- This pattern matches dates in the "MM/DD/YYYY" format, but it doesn't validate the correctness of dates (e.g., it allows for "02/30/2022").
+
+### 5. Extracting Hashtags from Social Media Text
+
+Regex for extracting hashtags from social media text (matches common hashtag formats):
+
+```javascript
+const hashtagRegex = /#\w+/g
+```
+
+- This pattern extracts hashtags, such as `#programming`, from social media text.
+
+### 6. Matching Phone Numbers
+
+Regex for matching US phone numbers (matches common formats):
+
+```javascript
+const phoneNumberRegex = /^(1-)?\d{3}-\d{3}-\d{4}$/
+```
+
+- This pattern matches US phone numbers in the "123-456-7890" or "1-123-456-7890" format.
+
+### 7. Matching and Extracting IP Addresses
+
+Regex for matching and extracting IP addresses (matches common IPv4 and IPv6 formats):
+
+```javascript
+const ipAddressRegex = /(?:\d{1,3}\.){3}\d{1,3}|[\da-fA-F:]+/
+```
+
+- This pattern matches and extracts IPv4 and IPv6 addresses.
+
+These are basic examples, and in real-world applications, you may need more complex regex patterns to handle all edge cases. When using regular expressions for critical tasks like email validation, it's advisable to use well-established libraries or services that provide more comprehensive and accurate patterns.
+
+=====================================================================================================================
+==================================================================================
+
+var 
+
+- The scope of a var variable depends on the location it is defined in the code (lexical scoping) 
+- During Hoisting, the variable is hoisted and it will be "undefined" 
+- So, this might resu lt in some undesirable results, hence it is recommended to use "let" and "const" 
+
+
+let
+
+- Block scope
+- During hoisting, the let variable is hoisted but it will not be defined yet. 
+- Using a let variable before definition will result in a 'reference error'.
+
+Const
+- It is the same as let, except once defined its value cannot be changed. 
+
+==================================================================================
+Closures
+
+- Closures are a fundamental concept of JavaScript which comes into play when multiple functions are defined inside each other. 
+- Basically an inner funtions can access the variables of outer function (through lexical scoping concept), therefore even if the outer function has finished 
+execution, the inner function can be executed later because the variables of outer function will be captured. Please see the example below:
+
+function f1() {
+	let outer1 = 20;
+	let outer2 = 30;
+	function f2() {
+		let outer3 = outer1 + outer2 
+		console.log(outer3) 		
+	}
+return f2();
+}  
+
+let finner = f1()
+finner();
+    //This displays the output "outer3" = 50
+
+===========================================================================
+"use strict"
+
+- "This" inside a regular function will be undefined. 
+- delete "variable-name" cannot be used
+- Variables cannot be defined before declaring them. 
+
+===============================================
+String manipulation and Handling:
+
+String fname = "Samanth"; 
+1.	fname.concat(secondName);
+     	console.log(fname + secondName)
+
+2.	fname.substring(2,5) => man
+	2 -> start index(including), 5 -> end index(excluding)
+	So, in the above example the letter "m" which is at the 2nd position in the fname variable will be considered until the letter "n" which is at the 
+		5 - 1, 4th position of the variable fname. 
+	If the index value is less than zero, it will be treated as zero.
+
+3.	fname.slice(-3) 
+	It will remove the first 3 characters and returns the rest of the characters into a new String. 
+	In this case it will return "anth".
+
+4.	fname.toUpperCase(); -> Converts to capital letters 
+	fname.toLowerCase(); -> Converts to lowercase letters
+
+5.	fname.charAt(2) -> Returns the character at 2nd index
+
+6.	fname.trim() -> removes white spaces
+	fname.trimStart() -> removes white spaces at start
+	fname.trimEnd() -> removes white spaces at end 
+		Removal of white spaces.
+
+7.	fname.padStart(6, "0")
+	fname.padEnd(6,"0") 
+		Padding with other characters at the beginning or end of the string. 
+
+8.	  let string1 = "Samanth";
+  let string2 = "Annaiah";
+  let string3 = string1 + string2.concat("Never" + "GivesUp");
+
+  let fullName = "SamanthAnnaiah is a good boy";
+  let sitem = "man";
+  let fullname1 = fullName.replace("boy", `${sitem}`);
+  console.log(fullname1);
+  const regex = new RegExp(sitem, 'gi');
+
+  let string4 = string3.replace(regex, "boy");
+  console.log(string4);
+}
+
+9.	Returns the index of the first occurence of the search string. 
+	fullName.indexOf("Annaiah")
+	fullName.lastIndexOf("Annaiah")
+		- indexOf cannot have regular expression 
+		- We can specify a second parameter to indicate the start position of search
+
+10.	Als0, returns the first index of the search that matches the string. 
+	fullName.search("Annaiah")
+		- Cannot specify a second parameter to indicate the start position of search 
+		- Can have a regular expression 
+
+================================================================
+
+Template Literals 	
+`expressions`
+
+Template literals with interpolation 
+`My name is ${varname}`
+
+=============================================
+NUMBERS
+
+let res = 5 + "10" => 510
+let res1 = 5 - "10" => -5 
+
+NaN -> reserved Javascript word (Not a Number)
+if (isNaN(x)) {
+}
+Following checks whether the value is a numbe or not.
+
+Convert numbers to other bases ->
+let mynumber = 7;
+mynumber.toString(16) = Conversion to base 16 
+mynumber.toString(10) = Conversion to base 10
+
+
+toFixed(3) -> rounded to the number of decimal places, fills with zeros
+toPrecision(6) -> Total number of digits in the number, fills with zeros
+
+Both the above functuons return String 
+
+Number(value/variable) -> Converts the value to a Number and returns it, it returns NaN if cannot be converted. 
+Number.parseInt() -> extract integer
+Number.parseFloat() -> extract a floating point number 
+
+=================================================================
+
+Arrays:
+
+let colors = ["blue", "yellow", "purple", "orange", "violet", "maroon", "red", "white", "green", "black"];
+
+colors.pop() -> Removes the last element in the array colors.
+colors.push("indigo") -> Pushes the color indigo into the last position of the array.
+colors.shift() ->  Removes the first element (blue) from the colors array.
+colors.unshift("burgundy") -> Inserts the colors burgundy at the first position of the array.
+colors.concat(colors1) -> the arrays colors and colors1 are combined.
+let newcolors = colors.slice(4) -> slices the colors array at position 4 and return the new array (from position 0 to 4) to the newcolors.
+colors.splice(2, 1) -> Removes 1 array element at the second position. 
+colors.splice(3, 2, "green1", "green2") -> Removes 2 elements at the third position of the array and inserts both the "green1" and "green2" elements.
+	First index - The position at which the elements have to be removed.
+	Second index - The number of elements that have to be removed.
+
+=================================================================================
+Example sort alogorithm for object array:
+
+
+const myArr = [
+    {name:"X00", price:100, weight:600 },
+    {name:"X02", price:100, weight:90 },
+    {name:"X06", price:110, weight:200 },
+    {name:"X07", price:110, weight:200 },
+    {name:"X08", price:120, weight:400 },
+    {name:"X01", price:100, weight:230 },
+    {name:"X09", price:120, weight:200 },
+    {name:"X10", price:120, weight:10 },
+    {name:"X11", price:120, weight:100 },
+    {name:"X12", price:130, weight:100 },
+    {name:"X13", price:130, weight:50 },
+    {name:"X14", price:130, weight:200 },
+    {name:"X15", price:130, weight:100 },
+    {name:"X01", price:50 , weight:66 },
+    {name:"X17", price:140, weight:200 },
+    {name:"X18", price:140, weight:200 },
+    {name:"X03", price:100, weight:77 },
+    {name:"X04", price:110, weight:34 },
+    {name:"X22", price:110, weight:200 },
+    {name:"X19", price:140, weight:20 }
+  ];
+
+  function sname(a, b) {
+    if (a.name < b.name) {
+      return -1;
+    }
+    if (a.name > b.name) {
+      return 1;
+    }
+    if (a.price !== b.price) {
+      return (a.price - b.price)
+    }
+    else {
+      return (a.weight - b.weight)
+    }
+}
+
+  
+  // Use the sort() method with the custom sorting function
+  myArr.sort(sname);
+  
+  console.log(myArr);
+
+===================================================================================================
+Array Iterations:
+
+ForEach: Iterates each element in the array by executing the function mentioned in the parameter. 
+value - the array element itself 
+index - Index of the array element
+array - The entire array itself
+
+colors.forEach(function1)
+function function1(value, index, array) {
+	value = value * 3.14 
+	new_function(value) 
+}
+----------------------
+map: Iterates each element in the array and returns a new array 
+
+With arror function it can be defined as below
+colors.map(value => value * 2)
+
+with a function it can be defined as 
+colors.map(function1)
+function function1(value, index, array) {
+	value = value * 3.14 
+	return value 
+}
+----------------------------------------
+filter: Iterates each element in the array and returns a new array by exluding the elements that do not match the filter provided.
+
+colors.filter(function1)
+function function1(value) {
+	if (value.length > 5) {
+		return value;
+	}
+}
+--------------------------------------
+Searching Arrays 
+
+colors.indexOf(item) -> returns the index of the search element, if not found retruns -1
+colors.lastIndexOf(item) -> Returns the last index of the search element, if not found returns -1 
+colors.includes(item) -> Checks if the item is included, return "true" if the item exists otherwise returns "false"
+
+Array search using regular expression:
+We must first build a regular expression object.
+Use the "Test" function of the above regular expression object in Array function "filter" to get the search item, "indexOf" to get the index. Please see the xample below
+
+let colors = ["blue", "yellow", "purple", "orange", "violet", "maroon", "red", "white", "green", "black"];
+let sitem =  "MAROON";
+let gexp = new RegExp(sitem, "i"); 
+let ind = colors.findIndex(fsearch);
+console.log(`The color is found at ${ind}`);
+function fsearch(item, index) {
+    let res = gexp.test(item);
+    if (res) {
+        return index;
+    }
+}
+
+===================================================================================================
+
+DATE:
+
+function getTimeStamp() {
+    let cdate = new Date();
+    let cyear = cdate.getFullYear();
+    let cmonth = cdate.getMonth() + 1;
+    let cdat = cdate.getDate();
+    let chour = cdate.getHours();
+    let cmin  = cdate.getMinutes();
+    let csec = cdate.getSeconds();
+    let cmsec = cdate.getMilliseconds();
+
+    let tstamp = cdat + '-' + cmonth + '-' + cyear + ' ' + chour + '-' + cmin + '-' + csec + '-' + cmsec
+    return tstamp
+}
+
+Getting the full name of the day of the week.
+
+const date = new Date('1989-12-16'); // Specify the date in 'YYYY-MM-DD' format
+const options = { weekday: 'long' }; // 'long' gives the full day name
+const options1 = { month: 'long' }; // 'long' gives the full day name
+
+const dayName = date.toLocaleDateString('en-IN', options);
+const monthName = date.toLocaleDateString('en-IN', options1);
+
+console.log(dayName); // This will log the full day name for December 16, 1989
+console.log(monthName); // This will log the month name 
+
+
+=====================
+Math.floor -> Just the integer
+Math.round -> Rounded to the nearest integer
+
+=================================
+
+Math.random() * 10 => random number from 0 to 9
+Math.random() * 100 => random number from 0 to 99
+(Math.random() * 100) + 1 => random number from 1 to 100 
+(Math.random() * 10) + 1 => random number from 1  to 10
+
+================================
+
+if () {
+
+} 
+else {
+
+}
+
+switch (expression) {
+	case (1):
+		break;
+	case (2):
+		break;
+	case (3):
+		break;
+	default:		
+		     ; 
+}
+
+==================================
+
+for loop
+
+for (i=0; i < 20; i++) {
+	
+}
+for (cond_1; cond_2; cond_3) {
+	
+}
+
+========================================
+Iterating over  Ojects
+for (i in object1) {
+	console.log(object1(1))
+
+}
+
+Iterating over iterables (not an Object)
+for (x of array) {
+	console.log(x)
+}
+Can also be used to iterate over a String 
+let filename = "halv2k11/ALD/BR/ETKLIST/LET500.TXT";
+for (x of filename) {
+    console.log(x)
+}
+
+===========================================================
+do, while loop 
+
+do {
+  logic will be executed at lease once before the condition is checked 
+}
+while ( condition )
+
+
+while ( condition ) {
+	logic will be checked until the condition is met 
+}
+
+================================================================
+
+SETS 
+
+SETS is a special data stuctore provided by JavaScript, it can store only unique values. Any repetitive values will be ignored.
+let myset = new Set(cars);
+To iteate it we first need to get the values using the corresponding values() function as below
+let mysetdata = myset.values();
+for (x of mysetdata) {
+    console.log(x);
+}
+To check if a record exists, you need to use mysetdata.has(); 
+to get the length we should use mysetdata.size; 
+
+============================
+
+MAP
+
+MAP is a special type of JavaScript data structure that hold the key-value pairs.
+let mymap = new Map();
+mymap.set(100, "VOLVO");
+mymap.set(200, "BMW");
+mymap.set(300, "AUDI");
+mymap.set(400, "TATA");
+mymap.set(500, "LEXUS");
+mymap.set(500, "TOYOTA");
+
+forEach work for Maps 
+mymap.forEach(mdata => console.log(mdata));
+
+To check if a record exists, you need to use mymap.has(); 
+to get the length we should use mymap.size; 
+
+========================================================
+
+typeof
+
+As the name indicates it is used to get the type of an variable or object 
+
+typeof "John"                 // Returns "string"
+typeof 3.14                   // Returns "number"
+typeof NaN                    // Returns "number"
+typeof false                  // Returns "boolean"
+typeof [1,2,3,4]              // Returns "object"
+typeof {name:'John', age:34}  // Returns "object"
+typeof new Date()             // Returns "object"
+typeof function () {}         // Returns "function"
+typeof myCar                  // Returns "undefined" *
+typeof null                   // Returns "object"
+
+==============================================
+
+Conversions:
+
+let veh_kw = 340;
+let veh_hp = "200.7866";
+let veh_make = "BMW";
+
+let qto_kw = veh_kw.toString(); (returns string)
+String(veh_make) -> converts veh_make to String.
+
+Number(veh_hp) -> converts veh_hp to number.
+let qto_hp = veh_hp.toFixed(2) -> Returns a number, 200.79
+let qto_kp = veh-hp.toPrecision(4) [Inidcates the total size of the number], so it returns 200.8
+Number.parseInt(qto_hp) -> returns insteger
+Number.parsefloat(qto_hp) -> returns float number 
+
+==============================================================================================================
+
+try {
+	code logic // can also use throw new Error
+}
+catch {
+	console.log(error) 
+}
+finally {
+	This piece of logic will be executed no matter what 
+}
+
+======================================================================================================================
+
+SPREAD OPERATOR:
+
+const student = {
+    name1: 'Alice',
+    info: {
+        age: 20,
+        major: 'Computer Science'
+    },
+    marks: {
+        English: 89,
+        Kannada: 78,
+        Science: 88,
+        Maths: 98 
+    }
+};
+
+const { name1, info: { age, major }, marks: {English, Kannada, Science, Maths} } = student;
+console.log(major);
+
+const newstudent = {name1, ...student.info, ...student.marks};
+console.log(newstudent);
+
+const mystudent = {name1: "Samanth Annaiah", ...student.info, ...student.marks};
+console.log(mystudent);
+
+checkSpread(mystudent);
+
+function checkSpread(mstud) {
+    console.log(mstud.English);
+}
+
+let nms = "Samanth";   
+let nms_data = [...nms];
+console.log(nms_data); 
+console.log(nms_data.length); 
+
+====================================================================================================================
+
+
+
+
+
+
+

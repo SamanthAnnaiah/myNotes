@@ -1,0 +1,121 @@
+ASYNC:
+- Sometimes there are certain functions/operations that consume time (which could be due to various factors such as time consumption and interaction with external databases etc) which 
+is independent of the rest of the program flow. 
+- But, in many cases the result of an async function should be used in consecutive function, so to achieve this we can use the mechanism provided by Promise. 
+- A function can be defined as an Async function by using the word "async" before the function, or by using Promise based implementation. 
+
+
+PROMISE:
+
+A JavaScript Promise is a JavaScript Object that provides a mechanism through which we can manage sequential execution of Async functions in a more organized way. 
+
+
+
+CALL-BACK HELL:
+
+const myrequest = new XMLHTTPRequest();
+myrequest.open('GET', 'url to get the vehicle based on the make')
+myrequest.send();
+myrequest.addEventListener("Load", function() {
+	let mdata = this.responseText;
+	mdata = JSON.Parse(mdata);
+	const myquote = new XMLHTTPRequest();
+	myquote.open('GET', 'url to get the quotation - mdata.make')
+	myquote.send();
+	myquote.addEventListener("Load", function() {
+		let kdata = this.responseText;
+		kdata = JSON.Parse(kdata);
+		const mydelivery = new XMLHTTPRequest();
+		mydelivery.open('GET', 'url to get the delivery - kdata.quotation')
+		mydelivery.send();
+		mydelivery.addEventListener("Load", function() {
+			let qdata = this.responseText;
+			qdata = JSON.Parse(qdata); 
+		}		
+	}	
+}
+
+The code above contains nested call-back functions inside each other, making it look confusing and difficult to maintain and we call this as "CALL-BACK-HELL".
+
+=============================================================
+In order to solve the above issue we use Promises 
+
+Below is an example how a typical Promise is implemented.
+
+////////////////////////////////////////////////////////////////////////
+let mileage = 300;
+let pdata = promiseGiver(mileage);
+console.log(`The returned Promise data is ${pdata}`); 
+
+function promiseGiver(miles) {
+	return new Promise((resolve, reject) => {
+		if (miles > 0) {
+			resolve(`The mileage ${miles} is correct)
+		}
+		else {
+			reject(`The mileage is wrong)
+		}
+	})
+}
+/////////////////////////////////////////////////////////////////////////
+To induce synchronicity we can use the two methods, 1. async-await and 2. "then" method chaining 
+
+ASYNC-AWAIT::
+
+Using the same above code as example:
+
+main();
+
+async function main() {
+	let mileage = 300;
+	let pdata = await promiseGiver(mileage);
+	console.log(`The returned Promise data is ${pdata}`); 
+}
+
+-----------------------------------------------------
+
+then method chaining:
+
+This is applicable for the "fetch" method 
+
+fetch("url-1").then(resp => return resp.json()).then(data => fetch("url-data1").then(resp => return resp.json()).then(data => console.log(data))); 
+
+------------------------------------------
+fetch can also be implemented using the "then" method as below
+
+***********************
+async function fetchDataFromFirstUrl() {
+    const response = await fetch('https://api.example.com/data');
+    const data = await response.json();
+    return data;
+}
+
+async function fetchDataFromSecondUrl() {
+    const response = await fetch('https://usingfecteddata.com');
+    const data = await response.json();
+    return data;
+}
+
+async function main() {
+    try {
+        const firstUrlData = await fetchDataFromFirstUrl();
+        console.log('Data from first URL:', firstUrlData);
+
+        const secondUrlData = await fetchDataFromSecondUrl();
+        console.log('Data from second URL:', secondUrlData);
+
+        // Other code that depends on both sets of data can be placed here.
+    } catch (error) {
+        console.error('Error occurred:', error);
+    }
+}
+
+main(); // Call the main function to start the program.
+************************************
+////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+

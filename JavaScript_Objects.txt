@@ -1,0 +1,128 @@
+Objects do exist in Javascript.
+
+Internally below is how Objects are defined in JavaScript:
+
+/////////////////////////////////////////////////////////////////////////////////
+- Through a function constructor.
+
+	function getcons(data, hp, kw){
+		this.data = data;
+		this.hp = hp;
+		this.kw = kw;
+	}
+
+/* The various variables for the Object is created using the prototype keyword. */
+	getcons.prototype.data1 = 30;
+	getcons.prototype.data2 = 60;
+/* Below creates a function for the Object */ 
+	getcons.prototype.func1 = function() {
+			return this.data;
+			}
+/////////////////////////////////////////////////////////////////////////////////
+
+================================================================================================
+================================================================================================
+Above is the actual way the JavaScript creates Objects internally, through function-constructors 
+and prototypes. But in order to somewhat align with the style of other popular languages, 
+JavaScript provides the below way which is 'syntactic sugar coated' to define a class 
+
+class c1 {
+	constructor(d1, d2) {
+		this.d1 = d1;
+		this.d1 = d2;
+	}
+	static getpi() {
+		return 3.14
+	}
+	get getter() {
+		return "special";
+	}
+	set setter(value) {
+		this.d1 = value;			
+	}
+
+} 
+
+let c1Obj = new c1();
+c1Obj.setter = 25;
+c1.getpi();
+
+**********************************************************
+Encapsulation - The variable will use the naming convention as starting with "_", it is just a naming convention but no functionality.
+example: private variables ..and should be accessed by getters and setters.
+
+Polymorphism:
+It is an OOP concept in which an Object along with its own individual behaviour also has the behaviour of another Object. This is achieved through 
+another concept called inheritance, please find the example below 
+
+class vehicle {
+    constructor(veh_make, veh_model, veh_kw, veh_hp) {
+                this.veh_make = veh_make;
+                this.veh_model = veh_model;
+                this.veh_kw = veh_kw;
+                this.veh_hp = veh_hp;
+       }
+    getCost() {
+        return (this.veh_hp * this.veh_kw);
+    }
+       
+}
+
+class quote extends vehicle {
+   constructor(quot_make, quot_model, quot_kw, quot_hp, quot_rv, quot_lease) {
+    super(quot_make, quot_model, quot_kw, quot_hp)
+    this.quot_rv = quot_rv * (0.20);
+    this.quot_lease = quot_lease + 200; 
+   }
+    getQuote() {
+        return (this.veh_kw * this.veh_hp + (this.quot_rv + this.quot_lease)); 
+    }  
+}
+
+const v1 = new vehicle("BM", "BMK20", 340, 500);
+console.log(v1.getCost());
+const q1 = new quote("VW", "INK70", 500, 470, 25, 14000);
+console.log(q1.getQuote());
+
+======================================================================================================
+
+__proto__ -> is a special entity of an Object that stores reference to another Object, and hence very important for protoype chaining. 
+
+const veh = {
+	veh_rv: 256,
+	veh_mc: 220,
+	veh_kw: 500
+}
+(Here, veh will be referring to Object, veh.__proto__ = Object)
+
+const vehNew = Object.create(veh);
+(So, in the above case the vehNew.__proto__ will be referrring to Object veh)
+
+const myVeh = {
+		}
+Object.setPrototype(myVeh);
+(Above statement links the __proto__ method of myVeh to vehNew) 
+
+===========================
+"new" statement 
+
+let mystring = new String();
+
+- It first creates an empty Object
+- The constructor defined in the String's function-constructor is RUN.
+- The above steps returns an Object, which is assigned to the empty Object created in the first step.
+- It will then be called as "mystring"
+
+========================================================
+
+- In the event handlers, the "this" in the call-back function will always point out to the event handler. 
+- If the event handler is defined inside a constructor class, then we would the "this" variable to be pointing to the instance of the constructor class.
+- To achieve this, we use the "bind" method on the callback function, like below example.
+	form.addEventListener("submit", this._newWorkout.bind(this));: When the form is submitted, the _newWorkout method is called. The bind(this) ensures that the _newWorkout method's 								       this context points to the App instance (this) when it's called within the event listener.
+
+
+
+
+
+
+

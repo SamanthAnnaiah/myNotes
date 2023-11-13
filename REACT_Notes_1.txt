@@ -1,0 +1,455 @@
+In REACT a component is simply a function.
+Each component return a jsx element (jsx - mixture of javascript and html).
+
+Why REACT?
+- Modular based.
+- Efficient and abstraction in keeeping the UI and data in sync. 
+
+REACT is a JavaScript framework that is used for effective and efficient display of user interface. It is a framework that is component based, with declarative syntax (JSX) and it is state driven. It is an abstraction away from DOM, no direct interaction with DOM. 
+
+It is important to note that REACT involves a lot of functional programming. 
+
+====================================================
+PURE REACT:
+
+react.development.js
+react-dom.development.js 
+====================================================
+
+pre-requisites of REACT 
+
+- Install NODE JS
+- Needs tooling, which can be done by CREATE-REACT-APP and VITE 
+- npx create-react-app app-name 
+- npm start (npm start application) 
+
+====================================================
+
+Folder structure:
+
+- node_modules (holds the dependencies) 
+- public - holds the index.html the first point of interaction by the browser
+- src - Holds the entire logic of our project 
+- package.json - created for npm 
+- package-lock.json - snapshot of our dependencies 
+
+Component in REACT is synonymous with function in vanilla JavaScript 
+
+JSX rules 
+
+- Always return a single element
+- close every element 
+- return should have a paranthesis
+
+===================
+Bunch of Components 
+
+- Each component is a UI with its own data facility and JavaScript logic. 
+- Components can be nested inside each other
+- Data can be passed between components using props
+- Components can be reused. 
+
+
+A web page's user interface can be divided into multiple components
+ex - acko.com 
+
+Sub page 1:
+component 1 - First line, contains menu items along with logo 
+component 2 - login/sign-up items 
+component 3 - main data component 
+	sub component 1 - line with types of insurances offered 
+	sub component 2 - label lines 
+	sub component 3 - input 
+component 4 - label with stats
+
+Sub page 2: 
+component 1 - image and text line 
+component 2 - image and text line 
+component 3 - image and text line 
+component 4 - image and text line 
+
+sub page 3:
+video player 
+
+sub page 4:
+component 1 - image line
+component 2 - reviews 
+	sub component 1 - image and text line
+	sub component 2 - image and text line
+	sub component 3 - image and text line
+==========================================================================
+
+JSX - JavaScript extension 
+
+It is an extension of JavaScript that embeds JavaScript, HTML, CSS and ReactComponents. 
+Babel converts this JSX to React based code (React.createElement) 
+
+You can use JavaScript expressions and functions inside JSX, but there are certain restrictions and considerations to keep in mind:
+
+1. **For Loops**: As shown in the previous response, you can't directly use `for` loops inside JSX. Instead, you should use JavaScript outside of JSX to generate the content you want to render, such as arrays of components or data, and then include them within the JSX.
+
+2. **If Statements**: You can't use `if` statements directly inside JSX. However, you can use the ternary conditional operator (`condition ? trueResult : falseResult`) or a short-circuit evaluation for conditional rendering. Alternatively, you can use conditional logic to prepare the data or components you want to render before including them in JSX.
+
+   ```jsx
+   // Using the ternary conditional operator
+   {isLoggedIn ? <UserGreeting /> : <GuestGreeting />}
+
+   // Using a short-circuit evaluation
+   {isLoading && <LoadingSpinner />}
+   ```
+
+3. **Variable Declarations**: You can't declare variables or perform complex calculations directly inside JSX. Instead, declare variables and perform calculations before rendering JSX and use the variables in JSX.
+
+4. **Functions**: You can use functions inside JSX, but they should be defined outside of the JSX code and then invoked within curly braces `{}`.
+
+   ```jsx
+   function formatName(user) {
+     return `${user.firstName} ${user.lastName}`;
+   }
+
+   const user = {
+     firstName: 'John',
+     lastName: 'Doe',
+   };
+
+   return (
+     <div>
+       <h1>Hello, {formatName(user)}!</h1>
+     </div>
+   );
+   ```
+
+5. **Comments**: You can't use JavaScript-style comments (`//` or `/* */`) directly inside JSX. Instead, you can use JSX comments within curly braces `{/* This is a JSX comment */}`.
+
+6. **Objects**: You can use object literals inside JSX, but it's typically for specifying props or attributes. Complex object manipulation should be done outside JSX.
+
+7. **Promises and Async Code**: JSX doesn't directly handle asynchronous code or promises. You should use `useEffect` or other lifecycle methods to manage asynchronous operations and update state accordingly.
+
+Remember that JSX is a syntax extension for JavaScript and is compiled into regular JavaScript by tools like Babel before being executed in the browser. While you have flexibility in how you structure your JSX, it's essential to follow JSX's rules and understand that JSX is not a template engine like some other JavaScript templating solutions.
+
+
+================================================================
+Parts of a component:
+
+- Data
+	- Props, (Props is passed from the parent component to the child component, not in reverse) 
+Props are immutable i.e. thay cannot be changed by the child component, because then it would also change the behaviour of the parent 
+this resulting in side-effects. This results in a one-way data flow, from parent components to child components. 
+	- State, it is the internal component data that is updated by the component's logic
+
+=======================================================================================
+Properties of JSX:
+
+- JSX expression should always have only one root element, you can use html non-semantic or semantic elements as a root element. 
+Otherwise you should put the expression inside a REACT fragment. 
+- The Javascript expression or variables or ternary operator should be put inside flower brackets {} when used inside JSX. We cannot use IF/ELSE or loops inside JSX. 
+- Tags should always be closed 
+- Attributes will be in camelCase
+- function or variables that return/store JSX should always start with a capital letter. 
+
+=======================================================================================
+
+Accessing LISTS:
+
+- Prepare the list, the list would be an array object that consists multiple objects containing the various contents of a list item. 
+- As it is an array, use the "map" method.
+- In the "map" method, call another sub-function by passing the array item as props.
+- The sub funnction may or may not include other functions, no matter what this is where the actual logic of UI formation happens. 
+
+===============================================================================================================================================
+
+Event handler can be attached to an element in a declarative way as a props to the jsx element. 
+ex: <div className="class1" onClick={function1}> click me </div> 
+    function function1() { } 
+
+/*************************************************=========================================**********************************************************************/
+
+////////////////////////////////////////////////////
+REACT THINKING 
+
+- Learn thoroughly about the various features and functionalities provided by the REACT framework and then integrate into the project requirement through the 
+bellow mentioned various REACT-thinking features. 
+	-	Dividing the user-interface into components. Each component can be composed inside a function called JSX. 
+
+
+///////////////////////////////////////////////////////////////
+
+The FORM elements of HTML has their own internal state, but REACT maintains and manages the inernal states of various components. 
+Therefore, we need to access DOM if we need to access such form elements. Such FORM elements should be controlled, i.e. the state should be controlled by REACT, such 
+elements called as controlled elements. 
+
+///////////////////////////////////////////////
+
+Difference between STATE and PROPS 
+
+STATE:
+
+-	Internal data of a component. 
+-	State is the component's memory.
+-	A change in STATE re-renders the component. 
+
+
+PROPS:
+
+-	External data owned by parent component. 
+-	It can be the external storage of a component that is passed from a parent component. 
+-	A change in PROPS pertaining to the receving child component can change its state and resulting in re-rendering of the component. 
+	This especially occurs when the state of a parent element is passed as props to the child component. 
+
+STATE 
+
+STATE is the most important concept in REACT, it indicates the data that a component holds throughout its lifecycle. Basically it is the component's memory.
+
+
+REACT hooks are REACT functional components that start with "use...".
+
+- REACT reacts to changes in State (in the form of data) and re-renders that particular UI component to which the State is associated with. 
+
+Set the state using the most recent state value using an arrow function in the argument of the state function. (example below)
+setMystate((svalue) => svalue + 1); 
+
+Various use cases of useState() 
+- the variable can be used to short entities like 
+	classnames
+	attribute vales
+	style properties 
+	html content, etc.
+
+Please see the below examples:
+
+let [mywidth, setmywidth] = useState(170);
+<div className='ldiv' style={{ width: mywidth }}>Width Variation</div>
+
+let [ddates, setddates] = useState(new Date());
+<h4>{ddates.toLocaleString()}</h4>
+const newDate = new Date(ddates);
+      newDate.setDate(newDate.getDate() + dsteps);
+      setddates(newDate);
+
+let [dcounts, setdcounts] = useState(1);
+setdcounts((stp) => stp + 1);
+          <button type="button" className='bclass'> - </button>
+          Count: {dcounts}
+          <button type="button" className='bclass'> + </button>
+
+The useState method is used to define the state. see example below 
+let [xvalue, setxvalue] = useState(x);
+xvalue can be either boolean, integer, array object. 
+
+
+
+//////////////////////////////////////////////////////
+
+PART - 2
+
+
+So, while dividing a user interface (or a figma style) into multiple stand alone components we need consider the following factors 
+
+- A component is said to be too big in size if it requires more than 10 to 15 props to function. 
+- A component should be neither too big nor too small. 
+- Logical separation of the user interface.
+- We should also consider reusability. 
+- We should also consider complexity. 
+
+
+Furthermore components can be broadly calssified into three types:
+
+- Component with a very basic purpose of rendering a html element.
+- Component with several STATES and PROPS. 
+- Component that indicate structure. 
+
+
+///////////////////////////////////////////////////////////////////
+
+PROP DRILLING:
+
+The process of passing data as props through multiple layers of nested components, to its corresponding component destination. 
+
+This might cause a level of complexity as a lot of data is being passed. 
+
+Hence we have to use PROP composition, which involves the component itself being passed as "children" 
+-	let [switch, setswitch] = useState(false);
+	<subdiv1> <sub1 switch={switch} setswitch={setswitch} sub1data={"sub data 1"} /> <subdiv1/> 
+
+	function subdiv1({children}) {
+		{children} 
+	}
+
+Basically this increases reusability, so that we can pass any children. 
+
+
+//////////////////////////////////////////
+
+Component should be built in such a way that there are not too many props or too less props. 
+	
+///////////////////////////////
+
+- A component is basically a set of logic that returns a JSX element 
+- Whenever a component is invoked in REACT, it creates an instance of that component. This instance then returns 
+  a JSX element which is interpreted into REACT.CREATELEMENT entities.
+- These entities then directly interact with the DOM to render the UI. 
+
+The component should be called as a component 	<Component />, only then the REACT will treat it as a component. 
+If the component is called aa normal function call Component(), then it will just be treated as the html element that it is returning. 
+
+Component -> Component instance -> JSX -> REACT.createlement function calls -> DOM element - User Interface screen 
+
+-----------------------------------------------------------------------------------------------------------------
+How rendering - Overview: 
+
+1. Render is triggered by updating state 
+2. REACT then calls the components and then figures out how the DOM should be updated. 
+3. COMMIT - This is where the DOM update actually happens. 
+4. Finally it is displayed on the browser - Browser paint 
+
+Triggering of render:
+
+1. When the component is initially mounted (first load) 
+2. When the states are updated. 
+
+RENDERING-PHASE:
+
+- Rendering is triggered when
+	- The react app is "mounted"/loaded for the first time. 
+	- When there is a change in the STATE 
+- When loaded for the first time 
+	- REACT-FIBER tree is created, it is a list type of tree that holds information of all the REACT components in the form of nodes and are linked to 
+each other as per the parent-child relationships, it is mutatable. 
+- When the state change occurs 
+	- REACT-ELEMENT-TREE (RENDERED TREE) is created, with the change in state of the component where the state is defined and all its child components. All the child components will be involved whether they are using the state or not. 
+	- Next, the REACT - RECONCILER will take the FIBER-TREE and the REACT-ELEMENT-TREE (RENDERED TREE) and through a process called DIFFING determines the changed components and the changes to be done. Finally, this produces a list containing the update/insert/delete information needed by the DOM to update the web-page. 
+All the above processes can happen ASYNCHRONOUSLY, i.e. in accumulated batches. 
+
+Finally the DOM-update list generated from the above step is fed into the rendered of REACT called REACT-DOM which will take care of feeding this information to the browser DOM in the next phase called COMMIT-PHASE. This process happens synchronously to prevent any partial update of UI. 
+
+============================
+DIFFING 
+
+- The DIFFING is the process used by the REACT reconciler to reconcile the differences between the REACT-FIBRE and the RENDERED-TREE.
+- The element will be destroyed and recreated again in different position, when "different element same position", but when "same element same position" element is not rebuilt. 
+- The above default behaviour can be changed by using the reserved "key" props in the element. When the "key" props remains the same even if the element position changes, the 
+element will not be rebuilt. But when the "key" props changes even if the element's position remains the same, the element will be rebuilt. 
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Side effects in functional programming is anything that happens outside the scope of functions, provided the function has influence on the variables outside its scope. 
+A pure function is a function that does not have any influence on the variables outside its scope. 
+
+An example of a pure function is below: 
+
+calcArea(radius) {
+	return (3.14 * radius * radius) 
+}
+
+An example of an impure functions is as below:
+
+calcDays(days) {
+	return (Date.now + days)
+}
+
+
+Components should always be pure functions, that is for the same input the output also has to be the same. 
+Hence, inside the components we should never
+- have any API calls
+- Have any timer functions
+- do not mutate any variables or object outside the scope of the component.
+- Do not directly touch the DOM. 
+- Do not update state or refs as this will create and infinite loop. 
+
+It is always encouraged to use sideEffects in even handler functions, and if we want to use side effects as soon as the application executes we can do that in 
+useEffect HOOK. 
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+State updates are batched, they are updated to the DOM in batching mode. This is done to improve optimization. 
+Hence State updates in REACT is asynchronous. 
+ If we want the State Update immediately then we need to use a call back function inside setState.
+
+
+///////////////////////////////////////////////
+
+Event handling in REACT 
+
+- In REACT all the event handlers that are indicated in the components are attached to the ROOT DOM element only. at the roor #root
+- Event capturing, Event target and Event bubbling also happens in REACT. So the technique of event delegation is also 
+possible here. 
+- In REACT events like focus, onchange, blur also bubble. 
+- The events in REACT are called synthetic events, (bcs to prevent any inconsistensies across browsers) 
+- In REACT the event types are indicated in camel case onClick(), whereas in vanilla javascript it is indicated as onclick().
+
+/////***********************//////////////////////********************////////////////////////////////////
+
+- First time execution of API should be indicated inside the useContext.
+- If we are using an async function inside useContext then we should call the ASYNC function as below 
+useContext(
+function () {
+	async function getapidata() {
+	   let res = await fetch("url to get data");
+	   let resdata = await res.json(); 
+	   	
+	}
+   }
+  getapidata();
+)
+
+//////////////////////////////==========================================///////////////////////////////////////////////////////========================================
+USEEFFECT
+
+useEffect is a REACT hook that is used to effectively manage side effects pertaining to a REACT functional component, these side effects 
+include API interactions, timer function, direct DOM manipulation etc. REACT functions should be pure hence all these side effects should happen inside 
+useEffect. 
+
+
+useEffect dependency array: 
+This is the second argument of the useEffect, it controls the frequency and moment of exection of the useEffect.
+If empty array, then it will be executed immediately ONLY after the initial render of functional component. 
+If NO array, then it will be executed after every render of the component. 
+If array includes PROPS or STATES, then it will be executed after any change in the PROPS and STATES. 
+
+5331 1205 5201 0402
+05/28
+228
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Array (list) functional programming concepts of REACT 
+
+- Array.map method is not mutatable to a regular array but when we use the Array.map method on an array containing a bunch of objects, than as per the characteristic of a 
+JavaScript Object any modification to the object in the Array.map method will mutate the original Array as well. Therefore we need to use a return using spread operator.
+Please see the example below:
+let freshmarks = realmarks.map((item, value) => {
+    let { English, Kannada } = item;
+    if (English === 88) {
+        // item.English = English + 100;
+        return { ...item, English: English + 100 }
+    }
+    else {
+        return item
+    }
+})
+
+- Arrap.map(item => item.id), will return only the IDs of the objects contained in the Array. 
+- Array.map(item => item.id).find("1234"), will return true if an id in the array object matches with "1234". 
+- Array.filter(item => item.id != "1234"), the filter method will return the array items whose id is not equal to "1234". 
+
+Every useEffect function in REACT can have a cleanup function that is executed in the below scenerios. It can specially useful to restore defaults pertaining to the 
+component when the component is unmounted. 
+- Before the next effect runs (i.e after the browser paint in a re-render)
+- Immediately after a component is unmounted
+
+
+
+
+
+
+
+
+
+
+
+
+
+

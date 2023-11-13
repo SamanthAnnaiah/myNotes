@@ -1,0 +1,145 @@
+<img src="name.jpg" height="300px" width="300px" alt="This is a sample image" title="an image">
+
+<img src="images/name.jpg" height="300px" width="300px" alt="This is a sample image" title="an image"> => image will be located inside the "images" folder of the 
+current folder 
+
+<img src="/root_details/images/name.jpg" height="300px" width="300px" alt="This is a sample image" title="an image"> image will be inside the folder that is located in the 
+root
+
+<img src="../../../inside/name.jpg" height="300px" width="300px" alt="This is a sample image" title="an image"> image will be located three levels deep from the current folder
+
+<img src="/../../../inside/name.jpg" height="300px" width="300px" alt="This is a sample image" title="an image"> image will be located three levels deep from the root folder 
+
+
+
+===========================================================
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="samanth_annaiah">
+	<link rel="stylesheet" href="https://google.com">
+</head>
+
+============================================================
+
+Various CSS layout techniques 
+
+- CSS frameworks like, BOOTSTRAP
+- CSS float property 
+- CSS FLEXBOX 
+- CSS GRID 
+
+
+=============================================================
+
+METHOD: It is the attribute that indicates how the submitted form data will be transmitted. 
+
+GET:- 
+- Used for data that does not need any encryption. 
+- Form data gets appended by "?" once we click on SUBMIT button and is shown in the url. 
+- The entered form data can be bookmarked. 
+- The size is limited to 2048 characters. 
+
+POST:-
+- Used for data that need encryption. 
+- Form data is encryted and appended into the HTTP request, not shown in the url 
+- The entered form data cannot be bookmarked.
+- There is no size limitation. 
+
+=============================================================
+
+- text-indent
+- line-height
+- letter-spacing
+- word-spacing 
+
+============================================================
+
+.clearfix::after {
+	content: "";
+	clear: both;
+	display: table;
+}
+
+============================================================
+
+.class {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+============================================================
+
+- descendent selector (div a)
+- immediate sibling selector (div + a)
+- All siblings selector (div ~ a)
+- immediate child/children selectors (div > a) 
+
+============================================================
+
+TRANSFORM 
+
+- translate(0px 0px)
+- translatex(30px)
+- translatey(-30px)
+- rotate(0deg)
+- scale(0px 0px)
+- scalex(20px)
+- scaley(20px)
+
+=================================================
+
+div {
+	transition: width 5s, transform 5s;
+
+}
+
+=================================================================
+Mostly use CSS layouts - 
+
+GRID 
+
+- GRID is one of the important CSS layouts. 
+- A DIV can be considered as a container for GRID layout if it has the property "display: grid". 
+- All direct children of this grid container are now the grid elements 
+- Area between each grid element can be given by gap, row-gap or column-gap.
+- Each element's area can be controlled by grid-column: 1/2; grid-row: 3/4; (start and end, grid-column-start grid-column-end, grid-row-start grid-row-end) 
+- Center the elements with "justify-content: center", element centered horizontally
+- In the GRID container we can also use "place-items: center", elements are centered vertically and horizontally
+
+
+FLEX
+
+- FLEX is the most useful two dimensional layout for display of items. 
+- The items that you need to be arranged using FLEX should have a parent container. 
+- The container should have "display: Flex". 
+- Flex layout has two main lines of axis: Main axis (Horizontal) and Cross axis (Vertical).
+- Arrangement along the cross  axis
+	- By default, the flex  items occupy the full height of the flex container.
+	- We use "align-items".
+	- align-items:  center -> centers the flex items
+	- 		flex-start -> aligns items at the start of the cross axis
+	-		flex-end -> aligns items at the end of the cross axis 
+	- Cross axis (vertical) aligning at the flex item level is done by "align-self".
+	
+- Arrangement along the main axis
+	- We use "justify-content".
+	- Alignment along the main axis.
+	- justify-content: center -> center alignment of items.
+	-		   space-around -> flex items are arranged evenly with even space around each item.
+	- 		   space-between -> flex items are arranged evenly with even space around each item except for the items that are on the edges. 
+	- justify-items has no effect and is ignored in flex layouts. 
+- The "order" is used to control the order of appearance of the flex items. The lesser the order, earlier the appearance in the layout. It can also hold 
+negative values.  
+
+
+========================= BOOTSTRAP BASICS ==================================
+- the CSS and javascript can be embedded in the html webpage, the content would be delivered by JSDeliver CDN.
+- container - responsive width, container-fluid - occupies the entire viewport
+- Manipulation of UI done by adding or removing the classes. 
+- Nav, Navbar 
+
+
+
+

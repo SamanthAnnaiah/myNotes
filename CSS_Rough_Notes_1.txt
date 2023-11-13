@@ -1,0 +1,441 @@
+1 inch = 2.54 cm
+1 vw = 1% of the viewport 
+% = indicates the percentage of the parent element
+px = 1/96(1-inch) 
+rem = times the root element 
+em = times the size of the current font size 
+
+
+==================================================================
+CSS specificity:
+
+- !important (Highest)
+- inline css (1000)
+- id selectors (100)
+- class, pseudo-class, attribute selectors (10)
+- pseudo-elements, just elements(1)
+
+===================================================================
+
+%  - percentage of parent element 
+vw - 1% of the view port size [1% of viewport width, 1% of viewport height]
+rem - times the root element, root element is the element at the root of html 
+em - emphasized, the number of times the default font size of the browser 
+px - 1/96th of the font size 
+1inch = 2.54cm 
+
+===================================================================
+
+
+h1 - 2em
+h2 - 1.5em 
+h3 - 1.17em
+h4 - 1em
+h5 - 0.83em
+h6 - 0.67em
+
+
+=============================
+a - element
+
+html hypertext-reference  link, the element is "a" there are pseudo-class elements associated with it  
+a::link = the original color of the link
+a::visited = the color the href link that is clicked on 
+a::hover = the action that occurs on the link when the mouse is hovered over it
+a::active = the color of the link that appears when the link is clicked 
+
+==============================
+html formatting elements:
+ 
+Below are all inline elements:
+<pre> = pre-formatted text preserves all the spaces \
+<i> = italic
+<b> = bold
+<strong> = stengthen the html content 
+<code> = marks that particular html content as code
+<sub> = subscript 
+<sup> = superscript 
+<q> = quote 
+<abbr> = abbrevation 
+<cite> = citation 
+
+Below is a html block element:
+<blockquote> 
+
+===========================================================
+INLINE-BLOCK:
+
+A block element is an element which starts in a new line and at the ending there will be a breakpoint set. 
+
+An inline element is an element which continues in the same line of the flow and does not have a breakpoint 
+inserted before and after the element. For the inline element the height cannot be adjusted. 
+
+Inline-block is a type of display in which the height of the element can be adjusted. 
+
+An element can be defined as block, inline and inline-block explicitly using the "display" css property. 
+
+============================================================
+TABLE:
+
+- Table is another html element that is comprised of rows(tr), headers (th), table data (td).
+- The nnumber of td and th inside the tr determines the number of columns.
+- A width/height of a cell can be changed by specifying the height and width in the style of a cell. <th style="height:200px;width:50%"></th>
+- The border can be given by using the usual border property.
+- By default when we give a border property it looks lik it has a double property. 
+- If we do not need the double borders we just need to use the border: border-collapse property to remove the borders. 
+- Spacing between the cells can be given using the border-spacing property. 
+- The content inside the cells can be aligned using text-align property. 
+
+======================================================================
+iframe:
+
+- iframe, as the name indicates it is a frame in the web page that can be used to display content.
+- The height and width can be determined by html attributes of the same name. The properties can also be changed using the CSS property values. 
+- The url is defined in src attribute 
+- The name attribute will have the name of the iframe. This name is indicated  in the "target" attribute of the "a" element of html. When the 
+link is clicked it will be opened in the frame with the 'name'. 
+   <iframe src="https://google.com" height="300px" width="200px" name="myframe" title="this is a frame">
+   <a target="myframe" href="https://www.w3schools.com">This is a link</a>
+
+=======================================================================
+Background image:
+
+- background-image, the link is defined in the "url" value 
+- By default the image will "repeat".
+- We can change it NOT to "repeat" by giving "no-repeat" - background-repeat.
+- The position of the background-image can be changed, using left, right, top and bottom - background-position.
+- the background image can move the mouse pointer - background-attachment: fixed or scroll.
+
+============================================================================
+FAVICON
+
+- A very tiny icon that appears at the top left of the tab frame.
+- type="image/x-icon"
+
+=============================================================================
+LISTS
+
+- ORDERED LIST (ol), list-style-type, type
+- UNORDERED LIST (ul)
+- data list (dl) , dd, dt 
+
+=====================================================================
+RESPONSIVE 
+
+- @media screen and (max-width:767px) {
+	}
+- For mobile phones the maximum media screen width is 767px. 
+- Mention the viewport in the meta tag 
+   <meta name="viewport" content="width=device-width, initial-scale="1.0">
+
+=================================================================================
+FORM
+
+- A form is an html element is where the user inputs are accepted. 
+- The form tag is - <form></form> 
+- <form> attributes 
+     - action="" , this is where the url is mentioned, when we press the submit button the data is sent to this url 
+     - method = "" POST PUT, method used to send the data to url 
+- label, as the name indicates it is the label for the input field. The relationship is established through the "for" attribute
+- input, as the name indicates it is the field where input data is entered. The "name" attribute and the "for" attribute of the label should have the same value.
+- input, has the "type" attribute which indicates what king of input it is, type="text" "number" "checkbox" "radio" "address" "tel" "email" "color" "range"
+
+======================================================================================
+METHOD = POST
+
+- The form data is sent in name~value pairs, appending it to the url.
+- It is not secure
+- The form data after submission can be bookmarked, to save the  input.
+
+METHOD = GET 
+
+- The form data is sent as part of the http request.
+- It is secure, hence primarily used to send secure information.
+- The form data, after submission cannot be bookmarked. 
+
+==============================================================================
+The dropdown in html can be achieved using the SELECT-OPTION html element.
+
+<select name="ddown" size="4" multiple>
+	<option value="Hungary">Hungary</option>
+</select>
+
+==================================================================
+INPUT 
+
+Attributes for the input element
+- type
+- min
+- max
+- pattern
+- maxlen
+- size
+- placeholder 
+- required 
+- autofocus
+
+======================================
+Types of SELECTORS 
+
+- Simple selectors 
+   Selection using the ID and class names p { } #para { }
+- Combinator selectors 
+   - Desecendent selectors, p a 
+   - child selectors, div > p
+   - immediate sibling selectors, div + p
+   - sibling selectors, div ~ p
+
+- Pseudo-class selectors
+   - a:hover 
+   - a:visited 
+- pseudo-element selectors 
+   - p::after 
+   - p::before
+- attribute selectors 
+   - a[href] 
+   - [width]
+
+======================================
+COLOR
+
+- rgb(red, green , blue)
+- rgba(red, green, blue, transparency), transparency has a value from 0 to 1
+- hsl(hue, saturation, lightness), hue - values, saturation/lightness - percentage
+
+========================================
+CSS BACKGROUND
+
+background-image: url(); 
+background-color: rgb();
+background-position: top/bottom/right/left;
+background-attachment: fixed/scroll;
+
+
+=====================================
+BORDER
+
+border-width: 0px 0px 10px 20px;
+border-style: solid; dotted;
+border-radius: 20px; 
+
+============================================
+BOX MODEL 
+
+width: 200px;
+padding:20px;
+border:15px;
+margin:10px;
+
+element width = 200 + 20 + 15 + 10 = 245 px
+
+box-sizing: border-box; -> element width = 200 - (20+15+10) = 155 px
+
+===============================================
+CSS TEXT 
+
+color: ;
+text-decoration-color: ;
+text-decoration-thickness: ;
+text-decoration: underline; overline;
+text-align: justify; left; right; center;
+letter-spacing: ;
+word-spacing: ;
+line-spacing: ;
+text-transform: lowercase; uppercase; capitalize;
+text-shadow: 2px 5px 10px blue; (x-axis y-axis blur color);
+
+================================================
+FONT 
+
+font-family: monospace;
+font-weight: 500;
+font-size: 100px;
+font-style: normal;italic;oblique;
+font-variant: normal; small-caps;
+
+==========================================
+Z-INDEX = 1 
+Z-INDEX = 2 
+The element with a higher Z-INDEX will be pushed front
+
+==========================================
+OVERFLOW
+
+overflow: scroll; The scroll will be visible no matter if the data overflows or not.
+overflow: auto;  The scroll will be visible only if the data overflows. 
+overflow: hidden; The overflowed content will not be visible.
+overflow: visible; The overflowed content will be visible and will be displayed outside the container. 
+
+====================================
+CSS SPECIFICITY 
+
+Below list shows the specificity of CSS selection 
+
+1. !important = Takes the highest priority, higher than the inline css styles.
+2. inline style = 1000
+3. #id = 100
+4. class, pseudo-class, attribute selector = 10
+5. elements, pseudo-element = 1 
+
+=====================================================
+TRANSFORM 
+
+2D
+- translate(x, y)
+- translatex(x)
+- translatey(y)
+- rotate(deg)
+- skew(x, y)
+- skewx(xdeg)
+- skewy(ydeg)
+- scale(x, y)
+- scalex(x)
+- scaley(y) 
+- matrix(scalex, skewx, skewy, scaley, translatex, translatey)
+
+3D
+- translate3d(x,y,z)
+- translatez(z)
+- scale3d(x,y,z)
+- scalez(z)
+- rotate3d(x,y,z)
+- rotate(z)
+- matrix3d()
+
+====================================================
+TRANSITION 
+
+The transform CSS property enables a time duration for the transition to occur. 
+div {
+width: 100px;
+transition(width 4s, transform 5s);
+{
+
+div:hover {
+transform: translate3d(3px 4px 8px);
+width:200px;
+}
+
+=================================================================================================
+************************************************************************************************************************
+=================================================================================================
+
+HTML5 - html (hypertext markup language) The language of the web that is used to structure a web page, basically it provides instructions to the web browser 
+to structure a web page. 
+
+HTML/HTML5 difference 
+
+- html does not support video/audio, the support is provided through third party softwares such as 'flash', html5 provides a direct support for audio/video 
+- html5 is mobile friendly and html is not mobile friendly 
+- html5 supports positioning through grid/flexbox 
+- html mostly uses table and float
+- html5 supports multi-threading and html does not support multi-threading
+
+
+===================================================================================================
+Tags:
+
+Tags are the pieces of code of html that structure a web page. Some tags have beginning and end, whereas some tags just have one tag. 
+
+===================================================================================================
+Basic tags needed for a webpage-html5:
+
+<!doctype html>
+<html>
+   <head>
+  </head>
+  <body>
+  </body> 
+</html>
+
+Attributes are the additional parameters that describe the html element, for example "img" is an html element (with only the starting tag)  that has the "src" which 
+describes the location of the image. 
+
+========================================================================================================
+CSS - CASCADING STYLE SHEETS 
+It is a style sheet language that is used to style/format the html elements. 
+
+=====================================================================================
+HTML performance indicators:
+
+- Page load time -> The time it takes for an entire page to load
+- Interaction time -> The time it takes for the user to be able to first interact with the page
+- Bounce rate -> The rate at which users leave the page, how long the user stays on the page before he leaves it.
+- Conversion rate -> The rate at which the user performs a concluding action like subscribing to newsletter, creating a login etc. 
+
+
+===========================================
+Bootstrap card -
+
+card 
+card-img-top
+
+card-body
+card-title
+card-text
+
+===========================================
+- Indicate the Carousal class and the type of carousal. 
+- Corousal indicators have to be be defined. These are the lines that appear at the bottom of the images.
+- Add the  images/data to the corousal through the corousal-item class.
+- Finally, you can add the buttons to corousal
+
+=====================================================
+
+Animation:
+
+@keyframes anime {
+	from {
+		color: red;
+		width: 20px;	
+	}
+	to {
+		color: purple;
+		width: 40px;
+	} 
+}
+
+div {
+	animation-name: anime;
+	animation-timing-function: ease-in;
+	animation-duration: 3s;
+	animation-delay: 0s;
+	animation-direction: alternate;
+	animation-iteration-count: 6; 
+}
+
+=========================================================================
+
+CSS Positioning:
+
+- Static:
+	- Default positioning, elements are positioned as per the normal flow of the document. 
+	
+- Relative:
+	- Location measurements are indicated by top, bottom, right, left. 
+	- The element is not displaced from its normal flow, but rather positioned relative to its original position. 
+
+- Absolute:
+	- Location measurements are indicated by top, bottom, right, left. 
+	- The element is displaced from its normal flow and positioned relative to its immediate positioned-ancestor, if not positioned than the positioning will happen as per 
+	the root element. 
+	- Other elements will be positioned as usual as if the absolutely positioned element doesn't exist.
+
+- Fixed:
+	-  Location measurements are indicated by top, bottom, right, left. 
+	-  The element is positioned relative to the document window. 
+
+- Sticky:
+	- The sticky positioning is a combination of "Relative" and "Sticky". Initially the element will be positioned in the default flow of the document but as soon as the 
+	points of top, bottom, right and left are reached the element will just stick in that position. 
+
+
+
+
+
+ 
+
+
+
+
+
