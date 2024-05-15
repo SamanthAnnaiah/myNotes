@@ -1,0 +1,49 @@
+useReducer Hook:
+
+-	The useReducer hook is used to effectively and efficiently manage complex "state" logic and changes. 
+-	When understood and used perfectly, it can reduce the number of unnecessary re-renders of the corresponding REACT components. 
+-	Ex:
+	let [lease, leasedispatch] = useReducer(leasegen, 0)
+	
+	function leasegen(lease, action) {
+		if (action.lduration >= 36 && action.lkm >= 120000) {
+			lease = 15000;
+		}
+		else {
+			lease = lease + (lease * (20 * 100));
+		}
+	}
+	
+	
+	<div><button onClick=(() => { leasedispatch({lduration: 36, lkm: 120000}) })>Generator</button></div> 
+- Can be very useful when the state logic is complex. 
+
+===============================
+
+fetch("https://getthebloodyapi.com").then((res) => res.json()).then((data) => console.log(data));
+
+useEffect(
+() => {
+	async function fname1() {
+		let data1 = await fetch("url to get the api");
+		let data2 = await data1.json();
+		console.log(data1); 
+	}	
+	fname1(); 
+}
+,[]);
+
+
+===============================
+Difference between useState and useReduce 
+
+useState:
+
+	- State management hook used to manage simple states. 
+	- The State can be changed in multiple parts of the component or across multiple components using the corresponding set function.
+	
+useReduce: 
+
+	- Specially used when there are multiple related pieces of State.
+	- Using a single dispatcher and by changing the arguments passe dinto it, we can change the state at a single poinht in code. 
+	- The state updates actually happens at a single pure function - reducer. 

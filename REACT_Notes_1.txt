@@ -5,7 +5,8 @@ Why REACT?
 - Modular based.
 - Efficient and abstraction in keeeping the UI and data in sync. 
 
-REACT is a JavaScript framework that is used for effective and efficient display of user interface. It is a framework that is component based, with declarative syntax (JSX) and it is state driven. It is an abstraction away from DOM, no direct interaction with DOM. 
+REACT is a JavaScript framework that is used for effective and efficient display of user interface. It is a framework that is component based, 
+with declarative syntax (JSX) and it is state driven. It is an abstraction away from DOM, no direct interaction with DOM. 
 
 It is important to note that REACT involves a lot of functional programming. 
 
@@ -86,9 +87,12 @@ Babel converts this JSX to React based code (React.createElement)
 
 You can use JavaScript expressions and functions inside JSX, but there are certain restrictions and considerations to keep in mind:
 
-1. **For Loops**: As shown in the previous response, you can't directly use `for` loops inside JSX. Instead, you should use JavaScript outside of JSX to generate the content you want to render, such as arrays of components or data, and then include them within the JSX.
+1. **For Loops**: As shown in the previous response, you can't directly use `for` loops inside JSX. Instead, you should use 
+JavaScript outside of JSX to generate the content you want to render, such as arrays of components or data, and then include them within the JSX.
 
-2. **If Statements**: You can't use `if` statements directly inside JSX. However, you can use the ternary conditional operator (`condition ? trueResult : falseResult`) or a short-circuit evaluation for conditional rendering. Alternatively, you can use conditional logic to prepare the data or components you want to render before including them in JSX.
+2. **If Statements**: You can't use `if` statements directly inside JSX. However, you can use the ternary 
+conditional operator (`condition ? trueResult : falseResult`) or a short-circuit evaluation for conditional rendering. 
+Alternatively, you can use conditional logic to prepare the data or components you want to render before including them in JSX.
 
    ```jsx
    // Using the ternary conditional operator
@@ -98,7 +102,8 @@ You can use JavaScript expressions and functions inside JSX, but there are certa
    {isLoading && <LoadingSpinner />}
    ```
 
-3. **Variable Declarations**: You can't declare variables or perform complex calculations directly inside JSX. Instead, declare variables and perform calculations before rendering JSX and use the variables in JSX.
+3. **Variable Declarations**: You can't declare variables or perform complex calculations directly inside JSX. 
+Instead, declare variables and perform calculations before rendering JSX and use the variables in JSX.
 
 4. **Functions**: You can use functions inside JSX, but they should be defined outside of the JSX code and then invoked within curly braces `{}`.
 
@@ -119,13 +124,18 @@ You can use JavaScript expressions and functions inside JSX, but there are certa
    );
    ```
 
-5. **Comments**: You can't use JavaScript-style comments (`//` or `/* */`) directly inside JSX. Instead, you can use JSX comments within curly braces `{/* This is a JSX comment */}`.
+5. **Comments**: You can't use JavaScript-style comments (`//` or `/* */`) directly inside JSX. Instead, you can use JSX comments within 
+curly braces `{/* This is a JSX comment */}`.
 
-6. **Objects**: You can use object literals inside JSX, but it's typically for specifying props or attributes. Complex object manipulation should be done outside JSX.
+6. **Objects**: You can use object literals inside JSX, but it's typically for specifying props or attributes. Complex object 
+manipulation should be done outside JSX.
 
-7. **Promises and Async Code**: JSX doesn't directly handle asynchronous code or promises. You should use `useEffect` or other lifecycle methods to manage asynchronous operations and update state accordingly.
+7. **Promises and Async Code**: JSX doesn't directly handle asynchronous code or promises. You should use `useEffect` or other 
+lifecycle methods to manage asynchronous operations and update state accordingly.
 
-Remember that JSX is a syntax extension for JavaScript and is compiled into regular JavaScript by tools like Babel before being executed in the browser. While you have flexibility in how you structure your JSX, it's essential to follow JSX's rules and understand that JSX is not a template engine like some other JavaScript templating solutions.
+Remember that JSX is a syntax extension for JavaScript and is compiled into regular JavaScript by tools like Babel before being executed 
+in the browser. While you have flexibility in how you structure your JSX, it's essential to follow JSX's rules and understand that JSX is not 
+a template engine like some other JavaScript templating solutions.
 
 
 ================================================================
@@ -135,14 +145,15 @@ Parts of a component:
 	- Props, (Props is passed from the parent component to the child component, not in reverse) 
 Props are immutable i.e. thay cannot be changed by the child component, because then it would also change the behaviour of the parent 
 this resulting in side-effects. This results in a one-way data flow, from parent components to child components. 
-	- State, it is the internal component data that is updated by the component's logic
+	- State, it is the internal component data that is updated by the component's logic. 
 
 =======================================================================================
 Properties of JSX:
 
 - JSX expression should always have only one root element, you can use html non-semantic or semantic elements as a root element. 
 Otherwise you should put the expression inside a REACT fragment. 
-- The Javascript expression or variables or ternary operator should be put inside flower brackets {} when used inside JSX. We cannot use IF/ELSE or loops inside JSX. 
+- The Javascript or variables or ternary operator should be put inside flower brackets {} when used inside JSX. We cannot 
+use IF/ELSE or loops inside JSX. 
 - Tags should always be closed 
 - Attributes will be in camelCase
 - function or variables that return/store JSX should always start with a capital letter. 
@@ -167,16 +178,16 @@ ex: <div className="class1" onClick={function1}> click me </div>
 ////////////////////////////////////////////////////
 REACT THINKING 
 
-- Learn thoroughly about the various features and functionalities provided by the REACT framework and then integrate into the project requirement through the 
-bellow mentioned various REACT-thinking features. 
+- Learn thoroughly about the various features and functionalities provided by the REACT framework and then integrate into the 
+project requirement through the bellow mentioned various REACT-thinking features. 
 	-	Dividing the user-interface into components. Each component can be composed inside a function called JSX. 
 
 
 ///////////////////////////////////////////////////////////////
 
-The FORM elements of HTML has their own internal state, but REACT maintains and manages the inernal states of various components. 
-Therefore, we need to access DOM if we need to access such form elements. Such FORM elements should be controlled, i.e. the state should be controlled by REACT, such 
-elements called as controlled elements. 
+The FORM elements of HTML has their own internal state, but REACT maintains and manages the internal states of various components. 
+Therefore, we need to access DOM if we need to access such form elements. Such FORM elements should be controlled, i.e. the state 
+should be controlled by REACT, such elements called as controlled elements. 
 
 ///////////////////////////////////////////////
 
@@ -198,7 +209,8 @@ PROPS:
 
 STATE 
 
-STATE is the most important concept in REACT, it indicates the data that a component holds throughout its lifecycle. Basically it is the component's memory.
+STATE is the most important concept in REACT, it indicates the data that a component holds throughout its lifecycle. 
+Basically it is the component's memory.
 
 
 REACT hooks are REACT functional components that start with "use...".
@@ -207,7 +219,7 @@ REACT hooks are REACT functional components that start with "use...".
 
 Set the state using the most recent state value using an arrow function in the argument of the state function. (example below)
 setMystate((svalue) => svalue + 1); 
-
+ 
 Various use cases of useState() 
 - the variable can be used to short entities like 
 	classnames
@@ -249,7 +261,7 @@ So, while dividing a user interface (or a figma style) into multiple stand alone
 - A component should be neither too big nor too small. 
 - Logical separation of the user interface.
 - We should also consider reusability. 
-- We should also consider complexity. 
+- We should also consider complexity.  
 
 
 Furthermore components can be broadly calssified into three types:
@@ -317,17 +329,22 @@ RENDERING-PHASE:
 each other as per the parent-child relationships, it is mutatable. 
 - When the state change occurs 
 	- REACT-ELEMENT-TREE (RENDERED TREE) is created, with the change in state of the component where the state is defined and all its child components. All the child components will be involved whether they are using the state or not. 
-	- Next, the REACT - RECONCILER will take the FIBER-TREE and the REACT-ELEMENT-TREE (RENDERED TREE) and through a process called DIFFING determines the changed components and the changes to be done. Finally, this produces a list containing the update/insert/delete information needed by the DOM to update the web-page. 
+	- Next, the REACT - RECONCILER will take the FIBER-TREE and the REACT-ELEMENT-TREE (RENDERED TREE) and through a process called DIFFING 
+	determines the changed components and the changes to be done. Finally, this produces a list containing the update/insert/delete information 
+	needed by the DOM to update the web-page. 
 All the above processes can happen ASYNCHRONOUSLY, i.e. in accumulated batches. 
 
-Finally the DOM-update list generated from the above step is fed into the rendered of REACT called REACT-DOM which will take care of feeding this information to the browser DOM in the next phase called COMMIT-PHASE. This process happens synchronously to prevent any partial update of UI. 
+Finally the DOM-update list generated from the above step is fed into the rendered of REACT called REACT-DOM which will take care of feeding this 
+information to the browser DOM in the next phase called COMMIT-PHASE. This process happens synchronously to prevent any partial update of UI. 
 
-============================
+========================================================================================================================================
 DIFFING 
 
 - The DIFFING is the process used by the REACT reconciler to reconcile the differences between the REACT-FIBRE and the RENDERED-TREE.
-- The element will be destroyed and recreated again in different position, when "different element same position", but when "same element same position" element is not rebuilt. 
-- The above default behaviour can be changed by using the reserved "key" props in the element. When the "key" props remains the same even if the element position changes, the 
+- The element will be destroyed and recreated again in different position, when "different element same position", but 
+when "same element same position" element is not rebuilt. 
+- The above default behaviour can be changed by using the reserved "key" props in the element. When the "key" props remains the same 
+even if the element position changes, the 
 element will not be rebuilt. But when the "key" props changes even if the element's position remains the same, the element will be rebuilt. 
 
 
@@ -398,8 +415,8 @@ function () {
 USEEFFECT
 
 useEffect is a REACT hook that is used to effectively manage side effects pertaining to a REACT functional component, these side effects 
-include API interactions, timer function, direct DOM manipulation etc. REACT functions should be pure hence all these side effects should happen inside 
-useEffect. 
+include API interactions, timer function, direct DOM manipulation etc. REACT functions should be pure hence all these side effects should 
+happen inside useEffect. 
 
 
 useEffect dependency array: 
@@ -435,11 +452,97 @@ let freshmarks = realmarks.map((item, value) => {
 - Array.map(item => item.id).find("1234"), will return true if an id in the array object matches with "1234". 
 - Array.filter(item => item.id != "1234"), the filter method will return the array items whose id is not equal to "1234". 
 
-Every useEffect function in REACT can have a cleanup function that is executed in the below scenerios. It can specially useful to restore defaults pertaining to the 
-component when the component is unmounted. 
+Every useEffect function in REACT can have a cleanup function that is executed in the below scenerios. It can be specifically useful to restore 
+defaults pertaining to the component when the component is unmounted. 
 - Before the next effect runs (i.e after the browser paint in a re-render)
 - Immediately after a component is unmounted
 
+=============================================================================
+
+Important points about HOOKS: 
+
+- REACT HOOKS are special functions that can be used to latch onto the REACT internals.
+- The most important REACT hooks are mentioned below:
+	- useState
+	- useEffect
+	- useRef
+	- useContext
+	- useReduce 
+	
+Rules of HOOKS: 
+- Hooks should always be defined at the top of a function, before any logic and also before the 
+first "return". 
+- The function should always be a "REACT FUNCTION". 
+- Hooks should not be embodied inside conditiional logic, this is because REACT notes down the hooks 
+in the order in which they are defined, therefore it is very important for the order of the hooks 
+to be staganant and not change during run-time. 
+
+==========================================================================================
+useState 
+
+- useState is a very important hook in REACT, it is used to define the STATE of a REACT component. 
+- It defines the deposition of a component at any point of time during the life cycle of the app. 
+
+let (lease, setLease)
+Initializing :- 
+1. simple way - let (lease, setLease) = useState(0);
+2. Through a function - Please note that this function should always be pure and there
+should be no arguments, and also this function will be executed only once during the initial 
+mount of the component. 
+							let (lease, setLease) = useState(
+								function() {
+									// logic to be used 
+									// return value - this will set the lease to a initial value 
+								}
+								);
+
+Setting the values :- 
+1. simple way - setLease(100);
+However, as we know the state updates are always batched (this is to improve the performance and 
+efficiency) thus sometimes the state update will not be immediately available which results in 
+"stale state". Hence, we can use the call back function method for the same 
+2. Through call-back function - setLease((lease) => lease + 1000);
+			For arrays - 
+			let temparray = mcaraay; 
+			setLease((temparray) => [...temparray]);
+			
+			For Objects - 
+			let temparray = mcarray;
+			setLease((temparray) => {...temparray});
+			
+=============================================================================================
+
+useRef 
+
+- The .current property can be used to read and write any data into the corresponding useRef hook. 
+- Just like state the value of useRef is persisted acroos multiple renders. 
+Ex: 
+	let counter = useRef(0);
+	In Component-1 -> counter.current = counter.current + 1;
+	In Component-2 -> counter.current = counter.current + 1;
+	In Component-3 -> counter.current = counter.current + 1;
+- But the most important property of useRef is that it DOES NOT CAUSE ANY RE-RENDERS TO THE REACT COMPONENTS if its data changes. 
+- Can be effectively used to select the DOM elements. 
+Ex:
+	let mybutton = useRef(null); 
+	<button ref="mybutton">Press</button>
+	
+================================================================================================
+Custom hooks are basically a function that should compulsarily start with "use", it contains 
+all the states of a REACT function component. 
+
+Ex: useModule.js
+    export function useModule() {
+		useState
+		useRef 
+		useEffect 
+		
+		return { } 
+	} 
+	
+And in the main module we need to import and use the above useModule.js. 
+
+===================================================================================================
 
 
 
